@@ -1,25 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import {  MantineProvider } from '@mantine/core';
+import LandingPage from './LandingPage';
+ 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MantineProvider
+    withGlobalStyles
+    withNormalizeCSS
+    theme={{
+      colorScheme: 'dark',
+      colors: { 
+        deepBlue: ['#E9EDFC', '#C1CCF6', '#99ABF0' /* ... */], 
+        blue: ['#E9EDFC', '#C1CCF6', '#99ABF0' /* ... */],
+      },
+
+      shadows: {
+        md: '1px 1px 3px rgba(0, 0, 0, .25)',
+        xl: '5px 5px 3px rgba(0, 0, 0, .25)',
+      },
+
+      headings: {
+        fontFamily: 'Exo, Inter',
+        sizes: {
+          h1: { fontSize: '2rem' },
+        },
+      },
+    }}
+  >
+    <LandingPage />
+  </MantineProvider>
   );
 }
 
